@@ -9,3 +9,5 @@ class Local{
     Tardanza;
     PedirPorAdelantado;
 }
+
+export default Local;

@@ -10,3 +10,5 @@ class Reseña {
     Poblacion;
     Descripcion;
 }
+
+export default Reseña;

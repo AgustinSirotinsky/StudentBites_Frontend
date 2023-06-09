@@ -7,3 +7,5 @@ class Usuario{
     isBanned;
     IDSeguidos
 }
+
+export default Usuario
