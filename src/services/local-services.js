@@ -16,3 +16,5 @@ getAll = async () => {
     return returnArray;
     }
 }
+
+export default LocalService
