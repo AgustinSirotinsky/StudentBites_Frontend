@@ -17,4 +17,19 @@ getAll = async () => {
     }
 }
 
+getById = async (id) => {
+    let returnArray=null;
+    console.log('Estoy en LocalService.getById()');
+    try {
+        let pool=await sql.connect(config);
+        let result = await pool.request()
+            .input('pId', sql.Int, id)
+            .query('SELECT * FROM Local WHERE id = @pId');
+        returnEntity = result.recordsets[0];
+    }
+    catch (error){
+        console.log(error)
+    }
+    return returnArray;
+}
 export default LocalService
