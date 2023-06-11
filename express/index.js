@@ -20,7 +20,11 @@ app.get('/locales',async (req,res) =>{
     return res.status(200).json(LocalesGetAll)
 })
 
-app.get(`$/locales/getById`,async (req,res) =>{
-    const LocalesGetById = await svcLocal.getById(1);
-    return res.status(200).json(LocalesGetById)
+app.get('/locales/:id',async (req,res) =>{
+    const LocalesGetById = await svcLocal.getById(req.params['id']);
+    if (LocalesGetById.length == 0) {
+        return res.status(404).send('Local inexistente')
+    } else {
+        return res.status(200).json(LocalesGetById)
+    }
 })

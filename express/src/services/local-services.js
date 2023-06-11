@@ -7,18 +7,18 @@ getAll = async () => {
     console.log('Estoy en LocalService.getAll()');
     try {
         let pool = await sql.connect(config);
-        let result = await pool.request().query("SELECT * FROM Local");
-        returnArray = result.recordsets[0];
+       let result = await pool.request().query("SELECT * FROM Local");
+       returnArray = result.recordsets[0];
     }
     catch (error){
         console.log(error)
     }
     return returnArray;
     }
-}
+
 
 getById = async (id) => {
-    let returnArray=null;
+    let returnEntity=null;
     console.log('Estoy en LocalService.getById()');
     try {
         let pool=await sql.connect(config);
@@ -30,6 +30,9 @@ getById = async (id) => {
     catch (error){
         console.log(error)
     }
-    return returnArray;
+    return returnEntity;
 }
+
+}
+
 export default LocalService
