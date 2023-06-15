@@ -21,6 +21,21 @@ app.get('/locales',async (req,res) =>{
     return res.status(200).json(LocalesGetAll)
 })
 
+app.get('/locales/title',async (req,res) =>{
+    const LocalesGetTitle = await svcLocal.getTitle();
+    return res.status(200).json(LocalesGetTitle)
+})
+
+app.get('/locales/image',async (req,res) =>{
+    const LocalesGetImage = await svcLocal.getImage();
+    return res.status(200).json(LocalesGetImage)
+})
+
+app.get('/locales/stars',async (req,res) =>{
+    const LocalesGetStars = await svcLocal.getStars();
+    return res.status(200).json(LocalesGetStars)
+})
+
 app.get('/locales/:id',async (req,res) =>{
     const LocalesGetById = await svcLocal.getById(req.params['id']);
     if (LocalesGetById.length == 0) {
