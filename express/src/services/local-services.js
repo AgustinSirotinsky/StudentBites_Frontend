@@ -38,7 +38,7 @@ getTitle = async () => {
     console.log('Estoy en LocalService.getTitle()');
     try {
         let pool = await sql.connect(config);
-       let result = await pool.request().query("SELECT Nombre FROM Local");
+       let result = await pool.request().query("SELECT ID,Nombre FROM Local");
        returnArray = result.recordsets[0];
     }
     catch (error){
@@ -52,7 +52,7 @@ getImage = async () => {
     console.log('Estoy en LocalService.getImage()');
     try {
         let pool = await sql.connect(config);
-       let result = await pool.request().query("SELECT Portada FROM Local");
+       let result = await pool.request().query("SELECT ID,Nombre,Portada FROM Local");
        returnArray = result.recordsets[0];
     }
     catch (error){
@@ -66,7 +66,7 @@ getStars = async () => {
     console.log('Estoy en LocalService.getStars()');
     try {
         let pool = await sql.connect(config);
-       let result = await pool.request().query("SELECT Calificacion FROM Local");
+       let result = await pool.request().query("SELECT ID,Nombre,Calificacion FROM Local");
        returnArray = result.recordsets[0];
     }
     catch (error){
