@@ -33,19 +33,46 @@ getById = async (id) => {
     return returnEntity;
 }
 
-getPrecios = async () => {
-    let returnEntity=null;
-    console.log("Estoy en LocalService.getPrecios()");
+getTitle = async () => {
+    let returnArray = null;
+    console.log('Estoy en LocalService.getTitle()');
     try {
         let pool = await sql.connect(config);
-        let result = await pool.request().query("SELECT Precio FROM Local");
-        returnArray = result.recordsets[0];
+       let result = await pool.request().query("SELECT ID,Nombre FROM Local");
+       returnArray = result.recordsets[0];
     }
     catch (error){
         console.log(error)
     }
     return returnArray;
-}
+    }
 
+getImage = async () => {
+    let returnArray = null;
+    console.log('Estoy en LocalService.getImage()');
+    try {
+        let pool = await sql.connect(config);
+       let result = await pool.request().query("SELECT ID,Nombre,Portada FROM Local");
+       returnArray = result.recordsets[0];
+    }
+    catch (error){
+        console.log(error)
+    }
+    return returnArray;
+    }
+
+getStars = async () => {
+    let returnArray = null;
+    console.log('Estoy en LocalService.getStars()');
+    try {
+        let pool = await sql.connect(config);
+       let result = await pool.request().query("SELECT ID,Nombre,Calificacion FROM Local");
+       returnArray = result.recordsets[0];
+    }
+    catch (error){
+        console.log(error)
+    }
+    return returnArray;
+    }
 }
 export default LocalService
