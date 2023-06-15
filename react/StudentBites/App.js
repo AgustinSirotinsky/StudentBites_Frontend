@@ -3,12 +3,12 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 
 export default function App() {
-  const generateSample = () => { console.log('a')}
+  const generateSample = () => { console.log("aaaa") }
   return (
     <View style={styles.container}>
       <Text>Holi</Text>
       <Pressable variant="danger" onClick={generateSample}>
-        Generate Text Sample
+      Generate Text Sample
       </Pressable>
       <StatusBar style="auto" />
     </View>
