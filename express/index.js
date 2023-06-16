@@ -48,7 +48,14 @@ app.get('/locales/stars',async (req,res) =>{
 
 // })
 
-
+app.get('/local/:id',async (req,res) =>{
+    const LocalGetById = await svcLocal.getById(req.params['id']);
+    if (LocalGetById.length == 0) {
+        return res.status(404).send('Local inexistente')
+    } else {
+        return res.status(200).json(LocalGetById)
+    }
+})
 
 //Usuarios
 app.get('/usuarios',async (req,res) =>{
