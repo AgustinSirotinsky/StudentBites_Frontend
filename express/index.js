@@ -1,8 +1,16 @@
 import express from "express";
+
 import LocalService from './src/services/local-services.js'
+import UsuarioService from "./src/services/usuario-services.js";
+import ReseñaService from "./src/services/reseña-services.js";
+
 import Local from './src/models/Local.js'
+import Usuario from './src/models/Usuario.js'
+import Reseña from './src/models/Reseña.js'
+
 const svcLocal=new LocalService();
-const id=0;
+const svcUsuario=new UsuarioService();
+const svcReseña=new ReseñaService();
 
 const app= express();
 const port= 3000;
@@ -36,13 +44,25 @@ app.get('/locales/stars',async (req,res) =>{
     return res.status(200).json(LocalesGetStars)
 })
 
-app.get('/locales/:id',async (req,res) =>{
-    const LocalesGetById = await svcLocal.getById(req.params['id']);
-    if (LocalesGetById.length == 0) {
-        return res.status(404).send('Local inexistente')
+// app.get('locales/insert',async (req,res) =>{
+
+// })
+
+
+
+//Usuarios
+app.get('/usuarios',async (req,res) =>{
+    const UsuariosGetAll = await svcUsuario.getAll();
+    return res.status(200).json(UsuariosGetAll)
+})
+
+app.get('/usuario/:id',async (req,res) =>{
+    const UsuariosGetById = await svcUsuario.getById(req.params['id']);
+    if (UsuariosGetById.length == 0) {
+        return res.status(404).send('Usuario inexistente')
     } else {
-        return res.status(200).json(LocalesGetById)
+        return res.status(200).json(UsuariosGetById)
     }
 })
 
-//Usuarios
+//Reseñas

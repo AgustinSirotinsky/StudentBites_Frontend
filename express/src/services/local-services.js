@@ -74,7 +74,7 @@ getStars = async () => {
     }
     return returnArray;
     }
-}
+
 insert = async (Local) => {
     let rowsAffected = 0;
     console.log('Estoy en: LocalService.insert()');
@@ -89,11 +89,15 @@ insert = async (Local) => {
             .input('pPrecio', sql.Int, Local?.Precio ?? '')
             .input('pPoblacion', sql.VarChar, Local?.Poblacion ?? '')
             .input('pTardanza', sql.Int, Local?.Tardanza ?? '')
-            .query(`INSERT INTO Local (imagen, nombre, edad, peso, historia) VALUES (@pImagen, @pNombre, @pEdad, @pPeso, @pHistoria)`);
+            .input('pPedirPorAdelantado', sql.Bit, Local?.PedirPorAdelantado ?? '')
+            .input('pPortada', sql.VarChar, Local?.Portada ?? '')
+            .query(`INSERT INTO Local (Nombre,Calificacion,Direccion,Contacto,Precio,Poblacion,Tardanza,PedirPorAdelantado,Portada) VALUES (@pNombre, @pCalificacion, @pDireccion, @pContacto, @pPrecio, @pPoblacion, @pTardanza, @pPedirPorAdelantado, @pPortada)`);
         rowsAffected = result.rowsAffected;
     } catch (error) {
         console.log(error);
     }
     return rowsAffected;
+}
+
 }
 export default LocalService
