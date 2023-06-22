@@ -45,10 +45,8 @@ function App() {
               </Offcanvas.Body>
             </Navbar.Offcanvas>
             <Form className="d-flex">
-              <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search"/>
-              <Button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" variant="outline-success">
-                🔎
-              </Button>
+              <Form.Control class="form-control py-2 rounded-pill mr-1 pr-5" type="search" placeholder="Search" className="me-2" aria-label="Search"/>
+              <Button class="btn rounded-pill border-0 ml-n5" variant="outline-success">🔎</Button>
             </Form>
             <Navbar.Brand href="#home" style={{ marginRight: "0px" }}>
               <img src={logo} width="40" height="40" className="d-inline-block float-right"/>
