@@ -1,4 +1,4 @@
-
+import logo from './assets/logo.png';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
@@ -46,9 +46,12 @@ function App() {
             </Navbar.Offcanvas>
             <Form className="d-flex">
               <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search"/>
-              <Button variant="outline-success">🔎</Button>
+              <Button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" variant="outline-success">
+                🔎
+              </Button>
             </Form>
             <Navbar.Brand href="#home" style={{ marginRight: "0px" }}>
+              <img src={logo} width="40" height="40" className="d-inline-block float-right"/>
             </Navbar.Brand>
           </Container>
         </Navbar>
