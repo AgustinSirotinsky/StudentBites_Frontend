@@ -1,4 +1,5 @@
 import logo from './assets/logo.png';
+import Ja from './assets/Ja.jpg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
@@ -21,6 +22,8 @@ function App() {
             <Navbar.Offcanvas id={`offcanvasNavbar-expand-${expand}`} aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`} placement="start" bg="dark" data-bs-theme="dark">
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                  <img src={Ja} class="rounded-circle" width="40" height="40"/>
+                  <p></p>
                   Offcanvas
                 </Offcanvas.Title>
               </Offcanvas.Header>
@@ -46,7 +49,9 @@ function App() {
             </Navbar.Offcanvas>
             <Form className="d-flex">
               <Form.Control class="form-control py-2 rounded-pill mr-1 pr-5" type="search" placeholder="Search" className="me-2" aria-label="Search"/>
-              <Button class="btn rounded-pill border-0 ml-n5" variant="outline-success">🔎</Button>
+              <span class="input-group-append">
+                    <Button class="btn rounded-pill border-0 ml-n5" type="button">🔎</Button>
+              </span>
             </Form>
             <Navbar.Brand href="#home" style={{ marginRight: "0px" }}>
               <img src={logo} width="40" height="40" className="d-inline-block float-right"/>
