@@ -9,8 +9,4 @@
               </NavDropdown.Item>
             </NavDropdown>
 
-            <Navbar.Brand href="#home">
-                <img src={logo} width="30" height="30" className="d-inline-block align-top"/>
-              </Navbar.Brand>
-
               bg="dark" data-bs-theme="dark"
