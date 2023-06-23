@@ -45,11 +45,9 @@ export default function UserSlider() {
             },
             mobile: {
               breakpoint: {
-                max: 50, min: 20
+                max: 550, min: 225
               },
-              itemWidth: 50,
-              itemHeight: 50,
-              items: 4,
+              items: 3,
               partialVisibilityGutter: 10
             },
             tablet: {
