@@ -50,7 +50,7 @@ export default function UserSlider() {
               itemWidth: 50,
               itemHeight: 50,
               items: 4,
-              partialVisibilityGutter: 20
+              partialVisibilityGutter: 10
             },
             tablet: {
               breakpoint: {

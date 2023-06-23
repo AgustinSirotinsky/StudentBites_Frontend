@@ -1,13 +1,12 @@
 .sliderContainer {
-  padding: 2rem 2rem;
+  padding: 0%;
 }
 
 .card {
   background-color: black;
-  border-radius: 1rem;
-  border: 1px solid lightgray;
+  border-radius: 5%;
   overflow: hidden;
-  margin: 0 1rem;
+  margin: 5%;
   color: whitesmoke;
 }
 .card img {
@@ -15,5 +14,5 @@
   height: 1;
 }
 .card .content {
-  padding: 1rem;
+  padding: 5%;
 }
