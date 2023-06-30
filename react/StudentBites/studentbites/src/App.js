@@ -11,15 +11,22 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import UserSlider from './assets/UserSlider';
 import NavBarTest from './assets/NavBarTest';
+import React, { useEffect, useState } from "react";
 
 
 function App() {
-
+    useEffect(() => {
+      fetch('/locales')
+      .then(res => res.json())
+      .then(res => {
+      })
+    })
   return (
-    <>
-    <NavBarTest></NavBarTest>
-    <UserSlider></UserSlider>
-    </>
+    // <>
+    // <NavBarTest></NavBarTest>
+    // <UserSlider></UserSlider>
+    // </>
+    <h1>SEX</h1>
   );
 }
 

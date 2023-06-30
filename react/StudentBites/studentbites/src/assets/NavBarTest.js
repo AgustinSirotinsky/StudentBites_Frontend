@@ -11,11 +11,12 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 
 export default function NavBarTest ()
 {
+  const Styles = {Container: {margin: 0, padding: 10, paddingBottom: 0, paddingTop: 0}}
     return (
       <>
       {[false].map((expand) => (
         <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3" bg="dark" data-bs-theme="dark">
-          <Container fluid>
+          <Container fluid style={Styles.Container}>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas id={`offcanvasNavbar-expand-${expand}`} aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`} placement="start" bg="dark" data-bs-theme="dark">
               <Offcanvas.Header closeButton>
@@ -36,13 +37,11 @@ export default function NavBarTest ()
               </Offcanvas.Body>
             </Navbar.Offcanvas>
             <Form className="d-flex">
-              <Form.Control class="form-control py-2 rounded-pill mr-1 pr-5" type="search" placeholder="Search" className="me-2" aria-label="Search"/>
-              <span class="input-group-append">
-                    <Button class="btn rounded-pill border-0 ml-n5" type="button">🔎</Button>
-              </span>
+              <Form.Control size="sm" class="form-control py-2" type="search" placeholder="Buscar" aria-label="Search"/>
+              <Button size="sm" class="btn btn-success border-0" type="button">🔎</Button>
             </Form>
             <Navbar.Brand href="#home" style={{ marginRight: "0px" }}>
-              <img src={logo} width="40" height="40" className="d-inline-block float-right"/>
+              <img src={logo} width="40" height="41" className="d-inline-block float-right"/>
             </Navbar.Brand>
           </Container>
         </Navbar>

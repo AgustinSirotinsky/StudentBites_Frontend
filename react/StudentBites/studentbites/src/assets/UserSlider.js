@@ -8,6 +8,8 @@ import "./UserSlider.css";
 export default function UserSlider() {
   const [users, setUsers] = useState([]);
 
+
+
   useEffect(() => {
     // Se obtiene la información de los usuarios y se guarda en el Array Users
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -71,11 +73,7 @@ export default function UserSlider() {
         {users &&
           users.map((user) => (
             <div key={user.id} className="card">
-              <img
-                src={
-                  `https://source.unsplash.com/random/1280x720?random=` +
-                  user.id
-                }
+              <img src={ `https://source.unsplash.com/random/1280x720?random=` + user.id }
                 alt=""
               />
               {/* Pretende ser la imagen de perfil del usuario, esta URL genera una imagen random */}
