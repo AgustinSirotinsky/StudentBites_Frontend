@@ -2,23 +2,39 @@ import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./UserSlider.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 // Configuración de cuántos elementos mostrar por página del slider en función del tamaño de la pantalla
 
 export default function UserSlider() {
-  const [users, setUsers] = useState([]);
-
-
+  const [locales, setLocales] = useState([]);
 
   useEffect(() => {
-    // Se obtiene la información de los usuarios y se guarda en el Array Users
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((json) => setUsers(json));
+    fetch(`http://localhost:3000/locales`)
+    .then(res => res.json())
+    .then((res) => setLocales(res))
+    .catch(err => console.log(err));  
   }, []);
+
 
   return (
     <div>
+      {locales &&
+      locales.map((local, index) => {
+        if (local.ID === 15) {
+          return (
+            <div key={index} className="card">
+              <img src={local.Portada} alt="" />
+                <div className="overlay">
+                  <p className="local-name">{local.Nombre}</p>
+              </div>
+            </div>
+          );
+        }
+        return null; // Si el ID no coincide, no se renderiza nada
+      })}
+      <br></br>
       {/* Componente principal, en el se pueden establecer las distintas configuraciones que desees, estas configuracion son las necesarias para un Slider sencillo */}
       <Carousel
         additionalTransfrom={0}
@@ -70,21 +86,22 @@ export default function UserSlider() {
         swipeable
         >
         {/* Del contenido leído desde el API de jsonplaceholder.com renderizamos el nombre de los usuarios, solo con la finalidad de notar la diferencia al desplazar el slider. */}
-        {users &&
-          users.map((user) => (
-            <div key={user.id} className="card">
-              <img src={ `https://source.unsplash.com/random/1280x720?random=` + user.id }
+        {locales &&
+          locales.map((Local, index) => (
+            <div key={index} className="card">
+              <img src={Local.Portada}
                 alt=""
               />
               {/* Pretende ser la imagen de perfil del usuario, esta URL genera una imagen random */}
               <div className="content">
                 <p>
-                  {user.id} - {user.name}
+                  {Local.Nombre}
                 </p>
               </div>
             </div>
           ))}
       </Carousel>
+
     </div>
   );
 }

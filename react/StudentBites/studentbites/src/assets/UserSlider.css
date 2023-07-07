@@ -3,6 +3,7 @@
 }
 
 .card {
+  position: relative;
   background-color: black;
   border-radius: 5%;
   overflow: hidden;
@@ -11,8 +12,22 @@
 }
 .card img {
   max-width: 100%;
-  height: 1;
+  height: 100%;
 }
-.card .content {
-  padding: 5%;
+
+.overlay {
+  position: absolute;
+  bottom: 0; /* Coloca el rectángulo en la parte inferior */
+  left: 0;
+  width: 100%;
+  height: 50px; /* Altura del rectángulo */
+  background-color: rgba(0, 0, 0, 0.5); /* Opacidad del rectángulo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.local-name {
+  color: white;
+  font-size: 25px;
 }
