@@ -96,6 +96,7 @@ export default function UserSlider() {
               <div className="content">
                 <p>
                   {Local.Nombre}
+                  {Local.Calificacion}
                 </p>
               </div>
             </div>
