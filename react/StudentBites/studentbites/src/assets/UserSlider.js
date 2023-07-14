@@ -17,11 +17,14 @@ export default function UserSlider() {
     .catch(err => console.log(err));  
   }, []);
 
+  
+  const sortedLocalesC = locales.sort((a, b) => b.Calificacion - a.Calificacion);
+  
+  const sortedLocalesP = locales.sort((a, b) => a.Precio - b.Precio);
 
   return (
     <div>
-      {locales &&
-      locales.map((local, index) => {
+      {locales && locales.map((local, index) => {
         if (local.ID === 15) {
           return (
             <div key={index} className="card">
@@ -35,22 +38,12 @@ export default function UserSlider() {
         return null; // Si el ID no coincide, no se renderiza nada
       })}
       <br></br>
-      {/* Componente principal, en el se pueden establecer las distintas configuraciones que desees, estas configuracion son las necesarias para un Slider sencillo */}
+      <h1>Top Populares</h1>
       <Carousel
-        additionalTransfrom={0}
-        arrows={false}
-        centerMode={false}
-        className=""
-        containerClass="container-padding-bottom"
-        draggable
-        focusOnSelect
-        infinite
-        itemClass=""
-        keyBoardControl
-        minimumTouchDrag={80}
-        pauseOnHover
-        renderArrowsWhenDisabled={false}
-        renderButtonGroupOutside={false}
+        additionalTransfrom={0} arrows={false} centerMode={false} className=""
+        containerClass="container-padding-bottom" draggable focusOnSelect
+        infinite itemClass="" keyBoardControl minimumTouchDrag={80}
+        pauseOnHover renderArrowsWhenDisabled={false} renderButtonGroupOutside={false}
         renderDotsOutside={false}
         responsive={
           {
@@ -78,31 +71,76 @@ export default function UserSlider() {
             }
           }
         }
-        rewind={false}
-        rewindWithAnimation={false}
-        rtl={false}
-        sliderClass=""
-        slidesToSlide={1}
-        swipeable
-        >
-        {/* Del contenido leído desde el API de jsonplaceholder.com renderizamos el nombre de los usuarios, solo con la finalidad de notar la diferencia al desplazar el slider. */}
-        {locales &&
-          locales.map((Local, index) => (
+        rewind={false} rewindWithAnimation={false} rtl={false} sliderClass=""
+        slidesToSlide={1} swipeable>
+        
+        {locales && sortedLocalesC.map((Local, index) => (
             <div key={index} className="card">
-              <img src={Local.Portada}
-                alt=""
-              />
-              {/* Pretende ser la imagen de perfil del usuario, esta URL genera una imagen random */}
+              <img src={Local.Portada} alt="" />
               <div className="content">
                 <p>
                   {Local.Nombre}
-                  {Local.Calificacion}
+                  <br></br>
+                  {Local.Calificacion}⭐
+                  <br></br>
+                  {Local.Precio}
                 </p>
               </div>
             </div>
           ))}
       </Carousel>
-
+      
+      <h1>Mas Baratos</h1>
+      <Carousel
+        additionalTransfrom={0} arrows={false} centerMode={false} className=""
+        containerClass="container-padding-bottom" draggable focusOnSelect
+        infinite itemClass="" keyBoardControl minimumTouchDrag={80}
+        pauseOnHover renderArrowsWhenDisabled={false} renderButtonGroupOutside={false}
+        renderDotsOutside={false}
+        responsive={
+          {
+            desktop: {
+              breakpoint: {
+                max: 3000, min: 1024
+              },
+              items: 4,
+              partialVisibilityGutter: 40
+            },
+            mobile: {
+              breakpoint: {
+                max: 550, min: 225
+              },
+              items: 3,
+              partialVisibilityGutter: 10
+            },
+            tablet: {
+              breakpoint: {
+                max: 1024,
+                min: 464
+              },
+              items: 4,
+              partialVisibilityGutter: 30
+            }
+          }
+        }
+        rewind={false} rewindWithAnimation={false} rtl={false} sliderClass=""
+        slidesToSlide={1} swipeable>
+        
+        {locales && sortedLocalesP.map((Local, index) => (
+            <div key={index} className="card">
+              <img src={Local.Portada} alt=""/>
+              <div className="content">
+                <p>
+                  {Local.Nombre}
+                  <br></br>
+                  {Local.Calificacion}⭐
+                  <br></br>
+                  {Local.Precio}
+                </p>
+              </div>
+            </div>
+          ))}
+      </Carousel>
     </div>
   );
 }
