@@ -1,7 +1,7 @@
-import './App.css';
+import '../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import UserSlider from './assets/UserSlider';
-import NavBarTest from './assets/NavBarTest';
+import UserSlider from '../assets/UserSlider';
+import NavBarTest from '../assets/NavBarTest';
 import React, { useEffect, useState } from "react";
 
 export default function Principal (){
