@@ -1,0 +1,10 @@
+.centered-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .centered-title {
+    text-align: center; 
+    font-weight: 700;
+  }
+  

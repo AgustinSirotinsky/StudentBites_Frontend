@@ -1,4 +1,4 @@
-import '../App.css'
+import './CargarReseña.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useParams } from 'react-router-dom';
 import { useState,useEffect } from 'react';
@@ -15,8 +15,8 @@ export default function CargarReseña (){
         });
     }, []);
     return (
-        <>
-        <h1>{Local.Nombre}</h1>
-        </>
+        <div className="centered-container">
+            <h1 className="centered-title">{Local.Nombre}</h1>
+        </div>
     )
 }
