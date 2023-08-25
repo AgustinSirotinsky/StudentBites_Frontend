@@ -1,0 +1,23 @@
+.dual-toggle-switch {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 5vh; /* O ajusta la altura según tu diseño */
+}
+.toggle-switch {
+    position: relative;
+    display: inline-box;
+    width: 60px;
+    height: 34px;
+    transition: background-color 0.4s;
+  }
+  
+  .toggle-switch.on {
+    color: black;
+  }
+  
+  .toggle-switch.off {
+    color: #ccc;
+  }
+  
+  
