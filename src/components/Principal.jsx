@@ -13,7 +13,6 @@ export default function Principal (){
     })
     return (
         <>
-            <NavBarTest></NavBarTest>
             <UserSlider></UserSlider>
         </>
     )
