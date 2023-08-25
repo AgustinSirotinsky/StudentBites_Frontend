@@ -3,21 +3,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UserSlider from './assets/UserSlider';
 import NavBarTest from './assets/NavBarTest';
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Principal from './components/Principal';
 
 
-function App() {
-    useEffect(() => {
-      fetch('/locales')
-      .then(res => res.json())
-      .then(res => {
-      })
-    })
+export default function App() {
   return (
-    <>
-    <NavBarTest></NavBarTest>
-    <UserSlider></UserSlider>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Principal />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
-export default App;
