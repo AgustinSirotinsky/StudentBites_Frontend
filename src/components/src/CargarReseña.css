@@ -1,0 +1,27 @@
+.container {
+    
+  }
+  
+  .centered-title {
+    text-align: center; 
+    font-weight: 700;
+  }
+
+.stars {
+  text-align: center;
+}
+.boton {
+  text-align: center;
+}
+button {
+background-color: transparent;
+border: none;
+outline: none;
+cursor: pointer;
+}
+.on {
+  color: #000;
+}
+.off {
+  color: #ccc;
+}
