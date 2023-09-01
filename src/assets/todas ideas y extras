@@ -1,0 +1,8 @@
+
+
+.like-count {
+    margin-left: 5px;
+  }
+  
+
+<span className="like-count">{likes}</span>

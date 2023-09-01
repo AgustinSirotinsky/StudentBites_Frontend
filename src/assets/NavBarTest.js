@@ -20,7 +20,7 @@ export default function NavBarTest ()
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas id={`offcanvasNavbar-expand-${expand}`} aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`} placement="start" bg="dark" data-bs-theme="dark">
               <Offcanvas.Header closeButton>
-              <img src={Ja} class="rounded-circle" width="60" height="60"/>
+                <img src={Ja} class="rounded-circle" width="60" height="60"/>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
                   <h3>Jose Luis</h3>
                   <p>@jluis2003</p>

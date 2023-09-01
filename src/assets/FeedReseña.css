@@ -1,0 +1,54 @@
+.review-card {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
+  }
+  
+  .user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .rating {
+    color: #ffdb58; /* Color for stars (yellow) */
+  }
+  
+  .star {
+    font-size: 1.2em;
+  }
+  
+  .like-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .like-button .liked-icon {
+    color: red; /* Cambia el color a rojo cuando se da like */
+  }
+  
+  .like-button .unliked-icon {
+    color: #000; /* Cambia el color a negro cuando no se ha dado like */
+  }
+  
+  .like-count {
+    margin-left: 5px;
+  }
+  
+  .comment-link {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+  }
+  
+  .fa-comments {
+    margin-right: 5px;
+  }
+  

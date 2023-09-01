@@ -5,6 +5,7 @@
   height: 5vh; /* O ajusta la altura según tu diseño */
 }
 .toggle-switch {
+    color: #ccc;
     position: relative;
     display: inline-box;
     width: 60px;
@@ -12,12 +13,6 @@
     transition: background-color 0.4s;
   }
   
-  .toggle-switch.on {
+  .toggle-switch.active {
     color: black;
   }
-  
-  .toggle-switch.off {
-    color: #ccc;
-  }
-  
-  
