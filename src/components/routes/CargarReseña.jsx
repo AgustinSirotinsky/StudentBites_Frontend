@@ -29,9 +29,27 @@ export default function CargarReseña (){
     }, [])
 
     //Ayuda a la seleccion de comida
-    const [selectedComida, setSelectedComida] = useState('');
+    const [selectedComida, setSelectedComida] = useState(null);
     const handleComidaChange = (e) => {
         setSelectedComida(e.target.value);
+      };
+
+    //Ayuda a la seleccion de precio
+    const [selectedPrecio, setSelectedPrecio] = useState(null);
+    const handlePrecioChange = (e) => {
+        setSelectedPrecio(e.target.value);
+      };
+    
+    //Ayuda a la seleccion de tardanza
+    const [selectedTardanza, setSelectedTardanza] = useState(null);
+    const handleTardanzaChange = (e) => {
+        setSelectedTardanza(e.target.value);
+      };
+
+      //Ayuda a la seleccion de poblacion
+    const [selectedPoblacion, setselectedPoblacion] = useState(null);
+    const handlePoblacionChange = (e) => {
+        setselectedPoblacion(e.target.value);
       };
 
     //Ayuda a la calificacion
@@ -40,8 +58,10 @@ export default function CargarReseña (){
         setRating(newRating);
     };
 
+
     return (
         <div className="container">
+            {console.log("")}
             <h1 className="centered-title">{Local.Nombre}</h1>
 
             <h2>Comida:</h2>
@@ -49,28 +69,52 @@ export default function CargarReseña (){
                     aria-label=""
                     value={selectedComida}
                     onChange={handleComidaChange}>
-                        {tiposDeComida.map(comida => (
-                        <option key={comida.ID} value={comida.Comida}>
-                            {comida.Comida}
+                        {tiposDeComida.map(item => (
+                        <option key={item.ID} value={item.Comida}>
+                            {item.Comida}
                         </option>
                         ))}
+                        {console.log("Comida: " + selectedComida)}
                     </Form.Select>
-                {console.log(selectedComida)}
             
             <h2>Precio:</h2>
-                <Form.Select aria-label="Default select example">
+                <Form.Select 
+                aria-label="Default select example"
+                value={selectedPrecio}
+                onChange={handlePrecioChange}>
                     <option value="1">Menos de $800</option>
                     <option value="2">Entre $800 y $1200</option>
                     <option value="3">Mas de $1200</option>
+                    {console.log("Precio: " + selectedPrecio)}
                 </Form.Select>
 
+
             <h2>Tardanza:</h2>
+                <Form.Select 
+                    aria-label="Default select example"
+                    value={selectedTardanza}
+                    onChange={handleTardanzaChange}>
+                        <option value="1">Baja</option>
+                        <option value="2">Media</option>
+                        <option value="3">Alta</option>
+                        {console.log("Tradanza: " + selectedTardanza)}
+                </Form.Select>
 
             <h2>Poblacion:</h2>
+            <Form.Select 
+                    aria-label="Default select example"
+                    value={selectedPoblacion}
+                    onChange={handlePoblacionChange}>
+                        <option value="1">Baja</option>
+                        <option value="2">Media</option>
+                        <option value="3">Alta</option>
+                        {console.log("Poblacion: " + selectedPoblacion)}
+                </Form.Select>    
+
                 <div className='stars'>
                     <h2>Calificacion:</h2>
                     <StarRating rating={rating} onRatingChange={handleRatingChange} />
-                    {console.log(rating)}
+                    {console.log("Calificacion: " + rating)}
                 </div>
             <h2>Descripcion:</h2>
             </div>
