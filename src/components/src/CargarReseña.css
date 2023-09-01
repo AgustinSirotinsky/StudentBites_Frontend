@@ -6,7 +6,13 @@
     text-align: center; 
     font-weight: 700;
   }
-  
+
+.stars {
+  text-align: center;
+}
+.boton {
+  text-align: center;
+}
 button {
 background-color: transparent;
 border: none;
