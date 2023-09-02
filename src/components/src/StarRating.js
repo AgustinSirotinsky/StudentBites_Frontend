@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./StarRating.css";
 
 const StarRating = ({ rating, onRatingChange }) => {
   const [hover, setHover] = useState(0);
@@ -18,7 +19,7 @@ const StarRating = ({ rating, onRatingChange }) => {
             onMouseEnter={() => setHover(index)}
             onMouseLeave={() => setHover(rating)}
           >
-            <span className="star">&#9733;</span>
+            <span className="star" style={{fontSize: "24px"}}>&#9733;</span>
           </button>
         );
       })}

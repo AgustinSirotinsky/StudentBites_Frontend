@@ -1,0 +1,7 @@
+   .star.on {
+    color: yellow; /* Set the color to yellow for selected stars */
+  }
+  
+  .star.off {
+    color: gray; /* Set the color to gray for deselected stars */
+  }

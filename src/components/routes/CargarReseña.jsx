@@ -67,8 +67,8 @@ export default function CargarReseña (){
 
     //Revisa antes de enviar
     const handleEnviar =() => {
-        if (selectedComida==0 || selectedPrecio==0 || selectedTardanza==0 || selectedPoblacion==0 || rating==null){
-            alert("FLACO RELLENA TODAS LAS COSAS")
+        if (selectedComida==0 || selectedPrecio==0 || selectedTardanza==0 || selectedPoblacion==0 || rating==0){
+            alert("Por favor rellene todos los campos")
             console.log("incompleto")
         }
         else {
