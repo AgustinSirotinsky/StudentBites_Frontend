@@ -5,7 +5,6 @@ import { useState,useEffect } from 'react';
 //Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
-import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 
 //Other
@@ -59,20 +58,46 @@ export default function CargarReseña (){
         setselectedPoblacion(e.target.value);
       };
 
+    //Ayuda a la descripcion
+    const [descripcion, setDescripcion] = useState("");
+    const handleDescripcionChange = (e) => {
+        setDescripcion(e.target.value);
+    };
+
     //Ayuda a la calificacion
     const [rating, setRating] = useState(0);
     const handleRatingChange = (newRating) => {
         setRating(newRating);
     };
 
-    //Revisa antes de enviar
+    //Revisa antes de enviar si todos los campos estan completos
     const handleEnviar =() => {
-        if (selectedComida==0 || selectedPrecio==0 || selectedTardanza==0 || selectedPoblacion==0 || rating==0){
+        if (selectedComida===0 || selectedPrecio===0 || selectedTardanza===0 || selectedPoblacion===0 || rating===0 || descripcion===""){
             alert("Por favor rellene todos los campos")
             console.log("incompleto")
         }
         else {
             console.log('completo')
+            console.log('localId: ' + params.localId)
+            fetch('http://localhost:3000/resenias/insert', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    "UsuarioId": 2,
+                    "LocalId": params.localId,
+                    "Calificacion": rating,
+                    "ComidaId": selectedComida,
+                    "Precio": selectedPrecio,
+                    "Tardanza": selectedTardanza,
+                    "Poblacion": selectedPoblacion,
+                    "Descripcion": descripcion
+                })
+            })
+            .then (res=>res.json())
+            .then(data => {
+                console.log(data)
+                window.location.href = `/`
+            })
         }
     }
 
@@ -133,8 +158,8 @@ export default function CargarReseña (){
                 </Form.Select>    
 
                 <h2>Descripcion:</h2>
-                    <Form.Control as="textarea" rows={3} />
-            
+                    <Form.Control as="textarea" rows={3} value={descripcion} onChange={handleDescripcionChange}/>
+                    {console.log("Descripcion: " + descripcion)}
                 <div className='stars'>
                     <h2>Calificacion:</h2>
                     <StarRating rating={rating} onRatingChange={handleRatingChange} />
