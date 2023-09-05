@@ -1,6 +1,8 @@
 //React
 import { useParams } from 'react-router-dom';
 import { useState,useEffect } from 'react';
+import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -31,6 +33,7 @@ export default function CargarReseña (){
         .then (res=>res.json())
         .then(data => {
             setTiposDeComida(data)
+            console.log(data)
         })
     }, [])
 
@@ -95,9 +98,10 @@ export default function CargarReseña (){
             })
             .then (res=>res.json())
             .then(data => {
-                console.log(data)
-                window.location.href = `/`
-            })
+                console.log(data);
+                console.log("Reseña enviada");
+                window.location.href = "/";
+            });
         }
     }
 
@@ -113,7 +117,7 @@ export default function CargarReseña (){
                     onChange={handleComidaChange}>
                         <option value="0"></option>
                         {tiposDeComida.map(item => (
-                        <option key={item.ID} value={item.Comida}>
+                        <option key={item.ID} value={item.ID}>
                             {item.Comida}
                         </option>
                         ))}
