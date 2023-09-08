@@ -1,18 +1,37 @@
 .dual-toggle-switch {
   display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  height: 5vh; /* O ajusta la altura según tu diseño */
+  justify-content: center;
+  align-items: center;
 }
-.toggle-switch {
-    color: #ccc;
-    position: relative;
-    display: inline-box;
-    width: 60px;
-    height: 34px;
-    transition: background-color 0.4s;
-  }
-  
-  .toggle-switch.active {
-    color: black;
-  }
+
+.button {
+  text-decoration: none;
+  color: #a8a8a8;
+  padding: 15px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 0.4s;
+  position: relative;
+}
+
+.button.active {
+  color: #333; /* Color cuando está encendido */
+}
+
+.active-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Altura de la barra */
+  background-color: #333; /* Color de la barra cuando está activa */
+  transform: scaleX(0); /* Inicialmente, la barra tiene un ancho de 0 */
+  transform-origin: left; /* La barra se expandirá desde la izquierda */
+  transition: transform 0.4s ease-in-out; /* Agregar una transición suave */
+}
+
+.button.active .active-bar {
+  transform: scaleX(1); /* Expandir la barra a lo ancho completo cuando está activa */
+  transition: transform 0.4s ease-in-out;
+}
