@@ -1,10 +1,29 @@
 .review-card {
-    display: flex;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    background-color: #fff;
-  }
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row; /* Coloca la imagen y el texto en una fila */
+  align-items: flex-start; /* Alinea verticalmente la imagen y el texto en la parte superior */
+}
+
+.user-profile {
+  flex-shrink: 0; /* Evita que la imagen de perfil se estire */
+  margin-right: 10px; /* Agrega espacio entre la imagen y el texto */
+}
+
+.review-content {
+  display: flex;
+  flex-direction: column; /* Coloca el ícono de corazón y el rating en columna debajo del texto */
+}
+
+
+.review-text {
+  overflow-y: auto; /* Agrega desplazamiento vertical si el texto es largo */
+  word-wrap: break-word; /* Divide las palabras en caso de overflow */
+}
+
   
   .user-profile img {
     width: 50px;
@@ -13,19 +32,15 @@
     margin-right: 10px;
   }
   
-  .rating {
-    color: #ffdb58; /* Color for stars (yellow) */
+  .likes {
+  display: flex;
+  align-items: center; /* Alinea el ícono de corazón y el rating horizontalmente */
   }
-  
-  .star {
-    font-size: 1.2em;
-  }
-  
+
   .like-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
   }
   
   .like-button .liked-icon {
@@ -35,11 +50,7 @@
   .like-button .unliked-icon {
     color: #000; /* Cambia el color a negro cuando no se ha dado like */
   }
-  
-  .like-count {
-    margin-left: 5px;
-  }
-  
+
   .comment-link {
     text-decoration: none;
     color: #333;

@@ -141,6 +141,57 @@ export default function UserSlider() {
             </div>
           ))}
       </Carousel>
+      <h1>Mas Cerca</h1>
+      <Carousel
+        additionalTransfrom={0} arrows={false} centerMode={false} className=""
+        containerClass="container-padding-bottom" draggable focusOnSelect
+        infinite itemClass="" keyBoardControl minimumTouchDrag={80}
+        pauseOnHover renderArrowsWhenDisabled={false} renderButtonGroupOutside={false}
+        renderDotsOutside={false}
+        responsive={
+          {
+            desktop: {
+              breakpoint: {
+                max: 3000, min: 1024
+              },
+              items: 4,
+              partialVisibilityGutter: 40
+            },
+            mobile: {
+              breakpoint: {
+                max: 550, min: 225
+              },
+              items: 3,
+              partialVisibilityGutter: 10
+            },
+            tablet: {
+              breakpoint: {
+                max: 1024,
+                min: 464
+              },
+              items: 4,
+              partialVisibilityGutter: 30
+            }
+          }
+        }
+        rewind={false} rewindWithAnimation={false} rtl={false} sliderClass=""
+        slidesToSlide={1} swipeable>
+        
+        {locales && sortedLocalesP.map((Local, index) => (
+            <div key={index} className="card">
+              <img src={Local.Portada} alt=""/>
+              <div className="content">
+                <p>
+                  {Local.Nombre}
+                  <br></br>
+                  {Local.Calificacion}⭐
+                  <br></br>
+                  {Local.Precio}
+                </p>
+              </div>
+            </div>
+          ))}
+      </Carousel>
     </div>
   );
 }

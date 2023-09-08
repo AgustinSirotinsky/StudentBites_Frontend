@@ -3,9 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from "react";
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import './FeedReseña.css';
+import Ja from './Ja.jpg';
+import StarRating from './StarRating';
 
-
-export default function FeedReseña ({ userAvatar, rating, likes, comments })
+export default function FeedReseña ({ userAvatar, rating})
 {
     const [reviews, setReviews] = useState([]);
     const [liked, setLiked] = useState(false);
@@ -17,39 +18,32 @@ export default function FeedReseña ({ userAvatar, rating, likes, comments })
         .catch(err => console.log(err));
     }, []);
     
-    const toggleLike = () => {
-        setLiked(!liked);
-    };
-
+    const toggleLike = (ID) => {
+        setLiked((prevLiked) => ({
+          ...prevLiked,
+          [ID]: !prevLiked[ID],
+        }));
+      };
     console.log(reviews);
     return (
-    <div className="review-card">
-        <div className="user-profile">
+        <div>
+      {reviews.map((Reseña) => (
+        <div className="review-card" key={Reseña.ID}>
+          <div className="user-profile">
+            <img src={Ja} className="rounded-circle" width="60" height="60" alt="User Avatar" />
+          </div>
+          <div className="review-text">
+            {Reseña.Descripcion}
+          </div>
+          <div className="like-section">
+            <div className="likes">
+              <button onClick={() => toggleLike(Reseña.ID)} className="like-button">
+                {liked[Reseña.ID] ? <FaHeart className="liked-icon" /> : <FaRegHeart className="unliked-icon" />}
+              </button>
+            </div>
+          </div>
         </div>
-        {reviews && reviews.map((Reseña, index) => {
-            if (Reseña.ID === 5)
-            {
-            return(
-            <div className="review-text" key={index}>
-                {Reseña.Descripcion} oa
-            </div>);}
-            return null;
-        })}
-        <div className="review-content">
-            <div className="rating">
-                {Array.from({ length: rating }, (_, index) => (<span key={index} className="star">&#9733;</span>))}
-            </div>
-            <div className="like-section">
-                <div className="likes">
-                    <button onClick={toggleLike} className="like-button">
-                        {liked ? <FaHeart className="liked-icon" /> : <FaRegHeart className="unliked-icon" />}
-                    </button>
-                </div>
-            </div>
-            <div className="comments">
-                <i className="fa fa-comments"></i>
-            </div>
-        </div>
+      ))}
     </div>
     );
 }
