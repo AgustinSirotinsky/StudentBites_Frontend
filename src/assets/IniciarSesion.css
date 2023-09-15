@@ -1,0 +1,19 @@
+.logo {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    margin-left: 25%;
+}
+.formulario {
+    margin-top:10%;
+    margin-left:10%;
+    margin-right: 10%;
+}
+.boton {
+    margin-top: 10%;
+}
+.link{
+    text-decoration: underline;
+    color: #FFF;
+}

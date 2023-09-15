@@ -10,8 +10,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 //Other
-import '../assets/CargarReseña.css'
-import StarRating from '../assets/StarRating';
+import '../../assets/CargarReseña.css'
+import StarRating from '../../assets/StarRating';
 
 export default function CargarReseña (){
 
