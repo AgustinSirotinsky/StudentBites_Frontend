@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Alert from "bootstrap";
+import Alert from 'react-bootstrap/Alert';
 
 //Other
 import '../../assets/IniciarSesion.css'
@@ -29,7 +29,7 @@ export default function IniciarSesion() {
 
     const Validar = () => {
         if (email == "" || password == ""){
-            alert("No se ha introducido un usuario o contraseña")
+            setContraseñaIncorrecta(true)
         }else
     fetch(`http://localhost:3000/usuario/email/${email}`)
     .then(res => res.json())
@@ -38,11 +38,10 @@ export default function IniciarSesion() {
         if (data.length == 0){
             console.log("El usuario no existe")
             setContraseñaIncorrecta(true)
-            console.log(contraseñaIncorrecta)
         }else
         if(data[0].Contraseña == password){
             console.log("Contraseña correcta")
-            windows.location.href = "/"
+            window.location.href = "/";
         }else{
             console.log("Contraseña incorrecta")
             setContraseñaIncorrecta(true)
@@ -53,6 +52,11 @@ export default function IniciarSesion() {
         <>
         <img src={logo} className="logo" alt="logo" />
         <div className="formulario">
+            {contraseñaIncorrecta && (
+            <div className="alert">
+                <Alert key='danger' variant='danger'>Contraseña o Email incorrecto</Alert>
+            </div>
+            )}
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Correo electrónico</Form.Label>
@@ -63,9 +67,6 @@ export default function IniciarSesion() {
                     <Form.Control type="password" placeholder="Introduce tu contraseña" onChange={handlePasswordChange} />
                 </Form.Group>
             </Form>
-            {contraseñaIncorrecta && (
-            <h1>sos</h1>
-            )}
             <div className="boton">
                 <Button variant="success" size="lg" onClick={Validar}>Iniciar Sesion</Button>
                 <h6><Link to="/recuperarcontraseña" style={{ color: '#000000' }}>Olvidaste tu contraseña?</Link></h6>
