@@ -8,6 +8,7 @@ import Feed from './components/routes/Feed';
 import CargarReseña from './components/routes/CargarReseña';
 import IniciarSesion from './components/routes/IniciarSesion';
 import RecuperarContraseña from './components/routes/RecuperarContraseña';
+import CrearCuenta from './components/routes/CrearCuenta';
 
 export default function App() {
   return (
@@ -18,7 +19,8 @@ export default function App() {
         <Route path="/Feed" element={<Feed />}></Route>
         <Route path="/cargarreseña/:localId" element={<CargarReseña />}></Route>
         <Route path="/iniciarsesion" element={<IniciarSesion />}></Route>
-        <Route path="recuperarcontraseña" element={<RecuperarContraseña />}></Route>
+        <Route path="/recuperarcontraseña" element={<RecuperarContraseña />}></Route>
+        <Route path="/crearcuenta" element={<CrearCuenta />}></Route>
       </Routes>
     </BrowserRouter>
   );

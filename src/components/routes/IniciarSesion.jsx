@@ -71,6 +71,9 @@ export default function IniciarSesion() {
                 <Button variant="success" size="lg" onClick={Validar}>Iniciar Sesion</Button>
                 <h6><Link to="/recuperarcontraseña" style={{ color: '#000000' }}>Olvidaste tu contraseña?</Link></h6>
             </div>
+            <div className="crearCuenta">
+                <h4><Link to="/crearcuenta" style={{ color: '#000000' }}>Crear Cuenta</Link></h4>
+            </div>
         </div>
         </>
     )
