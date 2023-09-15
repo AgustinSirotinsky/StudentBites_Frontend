@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useEffect, useState } from "react";
-import Bottoncambio from '../assets/Bottoncambio';
-import FeedReseña from '../assets/FeedReseña';
+import React, { useEffect } from "react";
+import Bottoncambio from '../../assets/Bottoncambio';
+import FeedReseña from '../../assets/FeedReseña';
 
 export default function Feed (){
     useEffect(() => {

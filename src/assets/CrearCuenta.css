@@ -1,0 +1,12 @@
+.iniciarSesion {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.logo {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    margin-left: 25%;
+}
