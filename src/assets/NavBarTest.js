@@ -40,7 +40,7 @@ export default function NavBarTest ()
               <Form.Control size="sm" class="form-control py-2" type="search" placeholder="Buscar" aria-label="Search"/>
               <Button size="sm" class="btn btn-success border-0" type="button">🔎</Button>
             </Form>
-            <Navbar.Brand href="#home" style={{ marginRight: "0px" }}>
+            <Navbar.Brand href="/" style={{ marginRight: "0px" }}>
               <img src={logo} width="40" height="41" className="d-inline-block float-right"/>
             </Navbar.Brand>
           </Container>

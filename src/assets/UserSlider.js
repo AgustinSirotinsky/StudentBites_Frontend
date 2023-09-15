@@ -5,10 +5,14 @@ import "./UserSlider.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
+
 // Configuración de cuántos elementos mostrar por página del slider en función del tamaño de la pantalla
 
 export default function UserSlider() {
   const [locales, setLocales] = useState([]);
+  const [localesPrecio, setPLocales] = useState([]);
+  const [localesCalif, setCLocales] = useState([]);
+  const [localesDist, setDLocales] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:3000/locales`)
@@ -17,10 +21,27 @@ export default function UserSlider() {
     .catch(err => console.log(err));  
   }, []);
 
-  
-  const sortedLocalesC = locales.sort((a, b) => b.Calificacion - a.Calificacion);
-  
-  const sortedLocalesP = locales.sort((a, b) => a.Precio - b.Precio);
+  useEffect(() => {
+    fetch(`http://localhost:3000/locales/orderByCalificacion`)
+    .then(res => res.json())
+    .then((res) => setCLocales(res))
+    .catch(err => console.log(err));  
+  }, []);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/locales/orderByPrecio`)
+    .then(res => res.json())
+    .then((res) => setPLocales(res))
+    .catch(err => console.log(err));  
+  }, []);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/locales/orderByDistancia`)
+    .then(res => res.json())
+    .then((res) => setDLocales(res))
+    .catch(err => console.log(err));  
+  }, []);
+
 
   return (
     <div>
@@ -74,11 +95,13 @@ export default function UserSlider() {
         rewind={false} rewindWithAnimation={false} rtl={false} sliderClass=""
         slidesToSlide={1} swipeable>
         
-        {locales && sortedLocalesC.map((Local, index) => (
-            <div key={index} className="card">
+        {locales && localesCalif.map((Local, index) => (
+            <div key={index} className="card"  onClick={() => {
+              window.location.href = `/PageLocal/${Local.ID}`;
+            }}>
               <img src={Local.Portada} alt="" />
               <div className="content">
-                <p>
+                <p style={{ margin: '4px' }}>
                   {Local.Nombre}
                   <br></br>
                   {Local.Calificacion}⭐
@@ -126,8 +149,9 @@ export default function UserSlider() {
         rewind={false} rewindWithAnimation={false} rtl={false} sliderClass=""
         slidesToSlide={1} swipeable>
         
-        {locales && sortedLocalesP.map((Local, index) => (
-            <div key={index} className="card">
+        {locales && localesPrecio.map((Local, index) => (
+            <div key={index} className="card" 
+              onClick={() => {window.location.href = `/PageLocal/${Local.ID}`;}}>
               <img src={Local.Portada} alt=""/>
               <div className="content">
                 <p>
@@ -177,8 +201,9 @@ export default function UserSlider() {
         rewind={false} rewindWithAnimation={false} rtl={false} sliderClass=""
         slidesToSlide={1} swipeable>
         
-        {locales && sortedLocalesP.map((Local, index) => (
-            <div key={index} className="card">
+        {locales && localesDist.map((Local, index) => (
+            <div key={index} className="card" onClick={() => {
+              window.location.href = `/PageLocal/${Local.ID}`;}}>
               <img src={Local.Portada} alt=""/>
               <div className="content">
                 <p>
