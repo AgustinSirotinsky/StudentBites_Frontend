@@ -1,40 +1,33 @@
+//css
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+//React
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NavBarTest from './assets/NavBarTest';
 
-<<<<<<< HEAD
-import Principal from './components/Principal';
-import Feed from './components/Feed';
-import CargarReseña from './components/CargarReseña';
-import PageLocal from './components/PageLocal';
-
-=======
+//Routes
 import Principal from './components/routes/Principal';
 import Feed from './components/routes/Feed';
 import CargarReseña from './components/routes/CargarReseña';
 import IniciarSesion from './components/routes/IniciarSesion';
 import RecuperarContraseña from './components/routes/RecuperarContraseña';
 import CrearCuenta from './components/routes/CrearCuenta';
->>>>>>> f96dce4168548d7a7233ab1bf43822bd9b1e6d7a
+import PageLocal from './components/routes/PageLocal';
+import Layout from './components/routes/Layout';
 
 export default function App() {
   return (
     <BrowserRouter>
-    <NavBarTest></NavBarTest>
       <Routes>
-        <Route path="/" element={<Principal />}></Route>
-        <Route path="/Feed" element={<Feed />}></Route>
-<<<<<<< HEAD
-        <Route path="/cargarreseña/:localId" element={<CargarReseña/>}></Route>
-        <Route path="/PageLocal/:localId" component={PageLocal} />
-
-=======
-        <Route path="/cargarreseña/:localId" element={<CargarReseña />}></Route>
-        <Route path="/iniciarsesion" element={<IniciarSesion />}></Route>
-        <Route path="/recuperarcontraseña" element={<RecuperarContraseña />}></Route>
+        <Route index element={<IniciarSesion />}></Route>
         <Route path="/crearcuenta" element={<CrearCuenta />}></Route>
->>>>>>> f96dce4168548d7a7233ab1bf43822bd9b1e6d7a
+        <Route path="/recuperarcontraseña" element={<RecuperarContraseña />}></Route>
+          <Route path='/' element={<Layout />}>
+            <Route path="/Feed" element={<Feed />}></Route>
+            <Route path="/cargarreseña/:localId" element={<CargarReseña/>}></Route>
+            <Route path="/PageLocal/:localId" component={<PageLocal/>} />
+            <Route path="/home" element={<Principal />}></Route>
+          </Route>
       </Routes>
     </BrowserRouter>
   );

@@ -41,7 +41,7 @@ export default function IniciarSesion() {
         }else
         if(data[0].Contraseña == password){
             console.log("Contraseña correcta")
-            window.location.href = "/";
+            window.location.href = "/home";
         }else{
             console.log("Contraseña incorrecta")
             setContraseñaIncorrecta(true)
@@ -53,9 +53,7 @@ export default function IniciarSesion() {
         <img src={logo} className="logo" alt="logo" />
         <div className="formulario">
             {contraseñaIncorrecta && (
-            <div className="alert">
                 <Alert key='danger' variant='danger'>Contraseña o Email incorrecto</Alert>
-            </div>
             )}
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -72,7 +70,7 @@ export default function IniciarSesion() {
                 <h6><Link to="/recuperarcontraseña" style={{ color: '#000000' }}>Olvidaste tu contraseña?</Link></h6>
             </div>
             <div className="crearCuenta">
-                <h4><Link to="/crearcuenta" style={{ color: '#000000' }}>Crear Cuenta</Link></h4>
+                <h4 className="link"><Link to="/crearcuenta" style={{ color: '#000000' }}>Crear Cuenta</Link></h4>
             </div>
         </div>
         </>

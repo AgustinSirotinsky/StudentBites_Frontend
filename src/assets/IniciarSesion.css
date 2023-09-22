@@ -1,23 +1,19 @@
 .logo {
-    width: 40%;
+    width: 50%;
     display: flex;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: 25%;
 }
 .formulario {
-    margin-top:10%;
+    margin-top:5%;
     margin-left:10%;
     margin-right: 10%;
 }
 .boton {
-    margin-top: 10%;
+    margin-top: 5%;
 }
-.link{
-    text-decoration: underline;
-    color: #FFF;
-}
-.crearCuenta {
+.link {
     position: absolute;
     left: 0;
     bottom: 0;
