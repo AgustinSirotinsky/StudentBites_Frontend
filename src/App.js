@@ -25,7 +25,7 @@ export default function App() {
           <Route path='/' element={<Layout />}>
             <Route path="/Feed" element={<Feed />}></Route>
             <Route path="/cargarreseña/:localId" element={<CargarReseña/>}></Route>
-            <Route path="/PageLocal/:localId" component={<PageLocal/>} />
+            <Route path="/PageLocal/:localId" element={<PageLocal/>} />
             <Route path="/home" element={<Principal />}></Route>
           </Route>
       </Routes>
