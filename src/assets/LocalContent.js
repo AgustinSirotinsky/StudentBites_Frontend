@@ -19,7 +19,6 @@ export default function LocalContent() {
 
   return (
     <>
-      <h2>??</h2>
       <a>{local.ID}</a>
       <h1>{local.Nombre}</h1> {/* Muestra el nombre del local */}
     </>
