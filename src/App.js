@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 //React
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import UserProvider from './components/context/userContext';
 
 //Routes
 import Principal from './components/routes/Principal';
@@ -17,6 +18,7 @@ import Layout from './components/routes/Layout';
 
 export default function App() {
   return (
+    <UserProvider>
     <BrowserRouter>
       <Routes>
         <Route index element={<IniciarSesion />}></Route>
@@ -30,6 +32,7 @@ export default function App() {
           </Route>
       </Routes>
     </BrowserRouter>
+    </UserProvider>
   );
 }
 

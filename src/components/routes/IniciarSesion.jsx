@@ -1,6 +1,6 @@
 //React
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import React, { useState } from 'react';
 
 //Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,8 +11,12 @@ import Alert from 'react-bootstrap/Alert';
 //Other
 import '../../assets/IniciarSesion.css'
 import logo from '../../assets/logo.png'
+import {UserContext} from "../context/userContext";
 
 export default function IniciarSesion() {
+    // const {user} = React.useContext(UserContext);
+    const {setUser} = React.useContext(UserContext);
+
     const [contraseñaIncorrecta, setContraseñaIncorrecta] = useState(false);
 
     const [email, setEmail] = useState("");
@@ -41,10 +45,12 @@ export default function IniciarSesion() {
         }else
         if(data[0].Contraseña == password){
             console.log("Contraseña correcta")
+            setUser(data[0])
             window.location.href = "/home";
         }else{
             console.log("Contraseña incorrecta")
             setContraseñaIncorrecta(true)
+            console.log(data[0])
         }
     });
     }
