@@ -4,9 +4,8 @@ import React, { useEffect, useState } from "react";
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import './FeedReseña.css';
 import Ja from './Ja.jpg';
-import StarRating from './StarRating';
 
-export default function FeedReseña ({ userAvatar, rating})
+export default function FeedReseña ()
 {
     const [reviews, setReviews] = useState([]);
     const [liked, setLiked] = useState(false);

@@ -20,9 +20,9 @@ export default function Bottoncambio({ label1, label2 }) {
 
   return (
     <div className="dual-toggle-switch">
-      <Link to="/home" className={`button ${location.pathname === '/' ? 'active' : ''}`} onClick={handleToggle1}>
+      <Link to="/home" className={`button ${location.pathname === '/home' ? 'active' : ''}`} onClick={handleToggle1}>
         {label1}
-        {location.pathname === '/' && <div className="active-bar"></div>}
+        {location.pathname === '/home' && <div className="active-bar"></div>}
       </Link>
       <Link to="/feed" className={`button ${location.pathname === '/feed' ? 'active' : ''}`} onClick={handleToggle2}>
         {label2}
