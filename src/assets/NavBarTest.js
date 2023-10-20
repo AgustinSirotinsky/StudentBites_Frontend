@@ -36,7 +36,7 @@ export default function NavBarTest ()
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
-            <Form className="d-flex">
+            <Form className="d-flex mb-0">
               <Form.Control size="sm" class="form-control py-2" type="search" placeholder="Buscar" aria-label="Search"/>
               <Button size="sm" class="btn btn-success border-0" type="button">🔎</Button>
             </Form>
