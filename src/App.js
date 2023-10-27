@@ -15,6 +15,7 @@ import RecuperarContraseña from './components/routes/RecuperarContraseña';
 import CrearCuenta from './components/routes/CrearCuenta';
 import PageLocal from './components/routes/PageLocal';
 import Layout from './components/routes/Layout';
+import Search from './components/routes/Search';
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/cargarreseña/:localId" element={<CargarReseña/>}></Route>
             <Route path="/PageLocal/:localId" element={<PageLocal/>} />
             <Route path="/home" element={<Principal />}></Route>
+            <Route path="/search" element={<Search />}></Route>
           </Route>
       </Routes>
     </BrowserRouter>
