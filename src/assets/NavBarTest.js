@@ -1,5 +1,8 @@
-import logo from './logo.png';
-import Ja from './Ja.jpg';
+//React
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+//Bootsrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -8,8 +11,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import React from 'react';
+
+//Context
 import { UserContext } from '../components/context/userContext';
+
+//Other
+import logo from './logo.png';
+import Ja from './Ja.jpg';
 
 export default function NavBarTest ()
 {
@@ -40,6 +48,9 @@ export default function NavBarTest ()
                   <Nav.Link href="#action2">Mis Reseñas</Nav.Link>
                   <Nav.Link href="#action2">Favoritos</Nav.Link>
                   <Nav.Link href="#action2">Descuentos</Nav.Link>
+                  <Link to="/search">
+                  <Nav.Link href="/search">Buscar locales</Nav.Link>
+                  </Link>
                   <Button variant="danger" onClick={handleLogout}>
                   Log Out
                   </Button>
@@ -47,10 +58,11 @@ export default function NavBarTest ()
               </Offcanvas.Body>
             </Navbar.Offcanvas>
             <Form className="d-flex mb-0">
-              <Form.Control size="sm" class="form-control py-2" type="search" placeholder="Buscar" aria-label="Search"/>
-              <Button size="sm" class="btn btn-success border-0" type="button">🔎</Button>
             </Form>
-            <Navbar.Brand href="/" style={{ marginRight: "0px" }}>
+            <Navbar.Brand href="/search" style={{ marginRight: "-100px" }}>
+              <button class="btn">🔎</button> 
+            </Navbar.Brand>
+            <Navbar.Brand href="/home" style={{ marginRight: "0px" }}>
               <img src={logo} width="40" height="41" className="d-inline-block float-right"/>
             </Navbar.Brand>
           </Container>
