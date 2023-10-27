@@ -8,9 +8,17 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import React from 'react';
+import { UserContext } from '../components/context/userContext';
 
 export default function NavBarTest ()
 {
+  const handleLogout = () => {
+    setUser(null);
+    window.location.href = "/";
+  };
+  const { user } = React.useContext(UserContext);
+  const { setUser } = React.useContext(UserContext);
   const Styles = {Container: {margin: 0, padding: 10, paddingBottom: 0, paddingTop: 0}}
     return (
       <>
@@ -22,8 +30,7 @@ export default function NavBarTest ()
               <Offcanvas.Header closeButton>
                 <img src={Ja} class="rounded-circle" width="60" height="60"/>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  <h3>Jose Luis</h3>
-                  <p>@jluis2003</p>
+                  <h3>{user.Usuario}</h3>
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
@@ -33,6 +40,9 @@ export default function NavBarTest ()
                   <Nav.Link href="#action2">Mis Reseñas</Nav.Link>
                   <Nav.Link href="#action2">Favoritos</Nav.Link>
                   <Nav.Link href="#action2">Descuentos</Nav.Link>
+                  <Button variant="danger" onClick={handleLogout}>
+                  Log Out
+                  </Button>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

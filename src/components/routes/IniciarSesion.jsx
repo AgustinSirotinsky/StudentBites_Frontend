@@ -14,7 +14,7 @@ import logo from '../../assets/logo.png'
 import {UserContext} from "../context/userContext";
 
 export default function IniciarSesion() {
-    const { setuser: setUser } = React.useContext(UserContext);
+    const { setUser } = React.useContext(UserContext);
 
     const [contraseñaIncorrecta, setContraseñaIncorrecta] = useState(false);
 
