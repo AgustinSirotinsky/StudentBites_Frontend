@@ -15,7 +15,7 @@ export default function NavBarTest ()
     return (
       <>
       {[false].map((expand) => (
-        <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3" bg="dark" data-bs-theme="dark">
+        <Navbar key={expand} expand={expand} className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
           <Container fluid style={Styles.Container}>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas id={`offcanvasNavbar-expand-${expand}`} aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`} placement="start" bg="dark" data-bs-theme="dark">
@@ -40,7 +40,7 @@ export default function NavBarTest ()
               <Form.Control size="sm" class="form-control py-2" type="search" placeholder="Buscar" aria-label="Search"/>
               <Button size="sm" class="btn btn-success border-0" type="button">🔎</Button>
             </Form>
-            <Navbar.Brand href="/" style={{ marginRight: "0px" }}>
+            <Navbar.Brand href="/home" style={{ marginRight: "0px" }}>
               <img src={logo} width="40" height="41" className="d-inline-block float-right"/>
             </Navbar.Brand>
           </Container>
