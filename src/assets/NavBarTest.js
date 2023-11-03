@@ -12,6 +12,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
+//Icons
+import { AiOutlineSearch } from "react-icons/ai";
 //Context
 import { UserContext } from '../components/context/userContext';
 
@@ -47,7 +49,6 @@ export default function NavBarTest ()
                   <Nav.Link href="#action2">Notificaciones</Nav.Link>
                   <Nav.Link href="#action2">Mis Reseñas</Nav.Link>
                   <Nav.Link href="#action2">Favoritos</Nav.Link>
-                  <Nav.Link href="#action2">Descuentos</Nav.Link>
                   <Link to="/search">
                   <Nav.Link href="/search">Buscar locales</Nav.Link>
                   </Link>
@@ -59,8 +60,8 @@ export default function NavBarTest ()
             </Navbar.Offcanvas>
             <Form className="d-flex mb-0">
             </Form>
-            <Navbar.Brand href="/search" style={{ marginRight: "-100px" }}>
-              <button class="btn">🔎</button> 
+            <Navbar.Brand href="/search" style={{ marginRight: "-200px" }}>
+              <button class="btn"><AiOutlineSearch size="25"/></button> 
             </Navbar.Brand>
             <Navbar.Brand href="/home" style={{ marginRight: "0px" }}>
               <img src={logo} width="40" height="41" className="d-inline-block float-right"/>
