@@ -62,7 +62,7 @@ export default function NavBarTest ()
             <Navbar.Brand href="/search" style={{ marginRight: "-100px" }}>
               <button class="btn">🔎</button> 
             </Navbar.Brand>
-            <Navbar.Brand href="/homehome" style={{ marginRight: "0px" }}>
+            <Navbar.Brand href="/home" style={{ marginRight: "0px" }}>
               <img src={logo} width="40" height="41" className="d-inline-block float-right"/>
             </Navbar.Brand>
           </Container>
