@@ -5,6 +5,7 @@ import "./LocalContent.css";
 import "react-multi-carousel/lib/styles.css";
 import Ja from './Ja.jpg';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 export default function LocalContent() {
   const { localId } = useParams();
@@ -132,7 +133,9 @@ export default function LocalContent() {
   </div>
 </div>
       <div className="centered-buttons">
+        <Link to={`/cargarreseña/${localId}`}>
         <button className="btn btn-success button-large" type="button">Dejar Reseña</button>
+        </Link>
         <button className="button-large" type="button" onClick={toggleReviewsHandler}>
           {showReviews ? 'Ocultar Reseñas' : 'Ver Reseñas'}
         </button>
