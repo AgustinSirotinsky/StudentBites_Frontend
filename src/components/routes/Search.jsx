@@ -16,7 +16,7 @@ import {MdOutlineFilterList} from 'react-icons/md'
 
 export default function Search () {
     const [localData, setLocalData] = useState([]);
-    let filterOption=false;
+    const [filterOption, setFilterOption] = useState(false);
     
     useEffect(() => {
         fetch('http://localhost:3000/locales')
@@ -31,6 +31,7 @@ export default function Search () {
 
     const handleLocalChange = (e) => {
         console.log(e.target.value)
+        console.log(filterOption)
         if (e.target.value==""){
             fetch('http://localhost:3000/locales')
         .then (res => res.json())
@@ -54,25 +55,43 @@ export default function Search () {
         };
     }
 
-    const changeFilterOption = () => {
+    //Filter function
+
+    //Muestra y oculta la card donde estan los filtros
+    const handleFilterChange = () => {
         if (filterOption==true){
-            filterOption=false
-            console.log('Filter option now false')
+            setFilterOption(false)
+            console.log(`Filter option now ${filterOption}`)
         }
         else {
-            filterOption=true
-            console.log('Filter option now true')
+            setFilterOption(true)
+            console.log(`Filter option now ${filterOption}`)
         }
     }
 
+    //Precio
+    const [precio, setPrecio] = useState(0);
+    const handlePrecioChange = (e) => {
+            setPrecio(e.target.value);
+            console.log(e.target.value)
+    }
+
     return (
-        <>
-        <div className="d-flex">
-          <Form.Control type="text" placeholder="Buscar local" autoComplete="off" onChange={handleLocalChange} />
-          <MdOutlineFilterList size="50" onClick={changeFilterOption}/>
-        </div>
+            <>
+            <div className="d-flex">
+                <Form.Control type="text" placeholder="Buscar local" autoComplete="off" onChange={handleLocalChange} />
+                <MdOutlineFilterList size="50" onClick={handleFilterChange}/>
+            </div>
+            {(filterOption) && (
+            <Card bg="white">
+                    <Form.Label style={{ color: 'black' }} >Precio</Form.Label>
+                    <Form.Range onChange={handlePrecioChange} min={0} max={2000} />
+            </Card>
+                )}
         {localData.map((localItem) => (
-        <Link to={`PageLocal:/${localItem.ID}`} style={{ color: '#000000' }}>
+        <>
+            {(localItem.Precio>=1000) && (
+        <Link to={`http://localhost:3001/PageLocal/${localItem.ID}`} style={{ color: '#000000' }}>
             <Card key={localItem.ID} style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={localItem.Portada} />
                 <Card.Body>
@@ -89,6 +108,8 @@ export default function Search () {
                 </Card.Body>
             </Card>
         </Link>
+        )}
+        </>
         ))}
       </>
     );
