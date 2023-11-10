@@ -60,7 +60,7 @@ export default function NavBarTest ()
             </Navbar.Offcanvas>
             <Form className="d-flex mb-0">
             </Form>
-            <Navbar.Brand href="/search" style={{ marginRight: "-200px" }}>
+            <Navbar.Brand href="/search" style={{ marginRight: "-100px" }}>
               <button class="btn"><AiOutlineSearch size="25"/></button> 
             </Navbar.Brand>
             <Navbar.Brand href="/home" style={{ marginRight: "0px" }}>
