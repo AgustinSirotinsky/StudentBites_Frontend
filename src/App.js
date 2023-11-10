@@ -25,7 +25,7 @@ export default function App() {
         <Route index element={<IniciarSesion />}></Route>
         <Route path="/crearcuenta" element={<CrearCuenta />}></Route>
         <Route path="/recuperarcontraseña" element={<RecuperarContraseña />}></Route>
-          <Route path='/' element={<Layout />}>
+          <Route path="/" element={<Layout />}>
             <Route path="/Feed" element={<Feed />}></Route>
             <Route path="/cargarreseña/:localId" element={<CargarReseña/>}></Route>
             <Route path="/PageLocal/:localId" element={<PageLocal/>} />
