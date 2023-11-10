@@ -16,6 +16,7 @@ import CrearCuenta from './components/routes/CrearCuenta';
 import PageLocal from './components/routes/PageLocal';
 import Layout from './components/routes/Layout';
 import Search from './components/routes/Search';
+import Profile from './components/routes/Profile';
 
 export default function App() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
             <Route path="/PageLocal/:localId" element={<PageLocal/>} />
             <Route path="/home" element={<Principal />}></Route>
             <Route path="/search" element={<Search />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
           </Route>
       </Routes>
     </BrowserRouter>

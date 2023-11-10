@@ -1,0 +1,20 @@
+h1, h2, h3, h4
+{
+    text-decoration: none;
+}
+a
+{
+    text-decoration: none;
+}
+.NavLink-noDecoration 
+{
+    text-decoration: none !important;
+}
+
+.NavLink-noDecoration,
+.NavLink-noDecoration:hover,
+.NavLink-noDecoration:focus,
+.NavLink-noDecoration:active
+{
+  color: #fff !important; /* Puedes ajustar el color según tus preferencias */
+}

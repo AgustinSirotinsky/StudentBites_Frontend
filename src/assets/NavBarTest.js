@@ -1,6 +1,6 @@
 //React
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 //Bootsrap
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,6 +20,7 @@ import { UserContext } from '../components/context/userContext';
 //Other
 import logo from './logo.png';
 import Ja from './Ja.jpg';
+import './NavBarTest.css';
 
 export default function NavBarTest ()
 {
@@ -40,18 +41,17 @@ export default function NavBarTest ()
               <Offcanvas.Header closeButton>
                 <img src={Ja} class="rounded-circle" width="60" height="60"/>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  <h3>{user.Usuario}</h3>
+                  <h3><NavLink href="/feed" className="NavLink-noDecoration">{user.Usuario}</NavLink></h3>
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link href="/home">Inicio</Nav.Link>
+                  <Nav.Link href="/profile">Perfil</Nav.Link>
                   <Nav.Link href="#action2">Notificaciones</Nav.Link>
                   <Nav.Link href="#action2">Mis Reseñas</Nav.Link>
                   <Nav.Link href="#action2">Favoritos</Nav.Link>
-                  <Link to="/search">
-                  <Nav.Link href="/search">Buscar locales</Nav.Link>
-                  </Link>
+                  <Nav.Link href="/search" className="NavLink-noDecoration">Buscar locales</Nav.Link>
                   <Button variant="danger" onClick={handleLogout}>
                   Log Out
                   </Button>

@@ -138,7 +138,7 @@ export default function LocalContent() {
         </button>
       </div>
     {showReviews && (
-    <div className="row">
+    <div className="row mb-2">
       {reviews.map((review, index) => (
         <div className="reviewLocal-card" key={index}>
           <div className="user-profile">
