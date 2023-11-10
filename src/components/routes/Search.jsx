@@ -27,6 +27,7 @@ export default function Search () {
         .catch(error => {
             console.error("Error fetching data:", error);
         });
+        //Valores default para que la busqueda muestre todos los resultados
     },[])
 
     const handleLocalChange = (e) => {
@@ -56,7 +57,6 @@ export default function Search () {
     }
 
     //Filter function
-
     //Muestra y oculta la card donde estan los filtros
     const handleFilterChange = () => {
         if (filterOption==true){
@@ -68,12 +68,41 @@ export default function Search () {
             console.log(`Filter option now ${filterOption}`)
         }
     }
-
     //Precio
-    const [precio, setPrecio] = useState(0);
+    const [precio, setPrecio] = useState(2500);
     const handlePrecioChange = (e) => {
-            setPrecio(e.target.value);
-            console.log(e.target.value)
+        setPrecio(e.target.value);
+        console.log(`Precio: $${e.target.value}`)
+    }
+    //Calificacion
+    const [calificacion, setCalificacion] = useState(0);
+    const handleCalificacionChange = (e) => {
+        setCalificacion(e.target.value/2);
+        console.log(`Calificacion: ${e.target.value}`)
+    }
+    //Distancia
+    const [distancia, setDistancia] = useState(1000);
+    const handleDistanciaChange = (e) => {
+        setDistancia(e.target.value);
+        console.log(`Distancia: ${e.target.value}m`)
+    }
+    //Poblacion
+    const [poblacion, setPoblacion] = useState(5);
+    const handlePoblacionChange = (e) => {
+        setPoblacion(e.target.value);
+        console.log(`Poblacion: ${e.target.value}`)
+    }
+    //Tardanza
+    const [tardanza, setTardanza] = useState(3);
+    const handleTardanzaChange = (e) => {
+        setTardanza(e.target.value);
+        console.log(`Tardanza: ${e.target.value}`)
+    }
+    //Pedir por adelantado
+    const [switchChecked, setSwitchChecked] = useState(false);
+    const handlePedirAdelantadoChange = () => {
+        setSwitchChecked(!switchChecked);
+        console.log(`Pedir por adelantado: ${switchChecked}`)
     }
 
     return (
@@ -84,30 +113,56 @@ export default function Search () {
             </div>
             {(filterOption) && (
             <Card bg="white">
-                    <Form.Label style={{ color: 'black' }} >Precio</Form.Label>
-                    <Form.Range onChange={handlePrecioChange} min={0} max={2000} />
+                {/* Precio */}
+                    <Form.Label style={{ color: 'black' }} >Precio ${precio}</Form.Label>
+                    <Form.Range onChange={handlePrecioChange} min={1200} max={2500} />
+                {/* Calificacion */}
+                    <Form.Label style={{ color: 'black' }} >Calificacion ⭐{calificacion}</Form.Label>
+                    <Form.Range onChange={handleCalificacionChange} min={0} max={10} />
+                {/* Distancia */}
+                    <Form.Label style={{ color: 'black' }} >Distancia {distancia}m</Form.Label>
+                    <Form.Range onChange={handleDistanciaChange} min={120} max={1000} />
+                {/* Poblacion */}
+                    <Form.Label style={{ color: 'black' }} >Poblacion {(poblacion==1) && ('Baja poblacion') || (poblacion==2) && ('Media poblacion') || (poblacion==3) && ('Alta poblacion') || (poblacion==4) && ('Agobiante poblacion') || (poblacion==5) && ('Gente afuera del local')}</Form.Label>
+                    <Form.Range onChange={handlePoblacionChange} min={1} max={5} />
+                {/* Tardanza */}
+                    <Form.Label style={{ color: 'black' }} >Tardanza {(tardanza==1) && ('Baja tardanza') || (tardanza==2) && ('Media tardanza') || (tardanza==3) && ('Alta tardanza')}</Form.Label>
+                    <Form.Range onChange={handleTardanzaChange} min={1} max={3} />
+                {/* Pedir por adelantado */}
+                    <Form.Check style={{ color: 'black' }}
+                        type="switch"
+                        id="custom-switch"
+                        label="Pedir por adelantado"
+                        checked={switchChecked}
+                        onChange={handlePedirAdelantadoChange}
+                    />
             </Card>
                 )}
         {localData.map((localItem) => (
         <>
-            {(localItem.Precio>=1000) && (
-        <Link to={`http://localhost:3001/PageLocal/${localItem.ID}`} style={{ color: '#000000' }}>
-            <Card key={localItem.ID} style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={localItem.Portada} />
-                <Card.Body>
-                <Card.Title>{localItem.Nombre}</Card.Title>
-                <Card.Text>
-                    Calificacion: {localItem.Calificacion}
-                    <br />
-                    Contacto: {localItem.Contacto}
-                    <br />
-                    Direccion: {localItem.Direccion}
-                    <br />
-                    Precio: {localItem.Precio}
-                </Card.Text>
-                </Card.Body>
-            </Card>
-        </Link>
+        {(precio >= localItem.Precio) &&
+        (localItem.Calificacion >= calificacion) &&
+        (distancia >= localItem.Distancia) &&
+        (poblacion >= localItem.Poblacion) &&
+        (switchChecked ? localItem.PedirPorAdelantado : true) && // Add this condition
+        (
+            <Link to={`http://localhost:3001/PageLocal/${localItem.ID}`} style={{ color: '#000000' }}>
+                <Card key={localItem.ID} style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={localItem.Portada} />
+                    <Card.Body>
+                        <Card.Title>{localItem.Nombre}</Card.Title>
+                        <Card.Text>
+                            Calificacion: {localItem.Calificacion}
+                            <br />
+                            Contacto: {localItem.Contacto}
+                            <br />
+                            Direccion: {localItem.Direccion}
+                            <br />
+                            Precio: {localItem.Precio}
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+            </Link>
         )}
         </>
         ))}

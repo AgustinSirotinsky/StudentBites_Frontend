@@ -1,4 +1,5 @@
 //React
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import { Navigate } from "react-router-dom";
@@ -12,9 +13,11 @@ import Button from 'react-bootstrap/Button';
 //Other
 import '../../assets/CargarReseña.css'
 import StarRating from '../../assets/StarRating';
+import { UserContext } from '../context/userContext';
 
 export default function CargarReseña (){
-
+    //Traigo el user para poder usar su id y cargar la reseña cpon el usuario que esta signedasdo REACT NATIVE
+    const { user } = React.useContext(UserContext);
     //Llamada a la api para conseguir el local usando los params
     const params=useParams();
     const [Local, setLocal] = useState([]);
@@ -86,7 +89,7 @@ export default function CargarReseña (){
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    "UsuarioId": 2,
+                    "UsuarioId": user.ID,
                     "LocalId": params.localId,
                     "Calificacion": rating,
                     "ComidaId": selectedComida,
@@ -100,7 +103,7 @@ export default function CargarReseña (){
             .then(data => {
                 console.log(data);
                 console.log("Reseña enviada");
-                window.location.href = "/";
+                window.location.href = "/home";
             });
         }
     }
