@@ -7,6 +7,10 @@
   pointer-events: none;
 }
 
+/* Agregar esta línea en tu app.css */
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -37,4 +41,15 @@
   }
 }
 
-p {font-size: smaller;}
+p {
+  font-size: smaller;
+  font-family: 'Jost', sans-serif;
+}
+
+body{
+  font-family: 'Jost', sans-serif;
+}
+
+h1,h2,h3,h4,a{
+  font-family: 'Jost', sans-serif;
+}
