@@ -21,6 +21,7 @@ export default function CrearCuenta() {
     const [passwordsNoCoinciden, setPasswordsNoCoinciden] = useState(false);
     const [usuarioYaExiste, setUsuarioYaExiste] = useState(false);
     const [emailYaRegistrado, setemailYaRegistrado] = useState(false);
+    const [edadNoValida, setEdadNoValida] = useState(false);
 
     const Validar = () => {
         setCamposVacios(false)
@@ -28,7 +29,7 @@ export default function CrearCuenta() {
         setPasswordsNoCoinciden(false)
         setUsuarioYaExiste(false)
         setemailYaRegistrado(false)
-        if (email == "" || password == "" || passwordConfirmation == "" || usuario == "") {
+        if (email == "" || password == "" || edad == "" || passwordConfirmation == "" || usuario == "") {
             setCamposVacios(true)
         }
         else if (password != passwordConfirmation) {
@@ -57,6 +58,7 @@ export default function CrearCuenta() {
                     "Email": email,
                     "Usuario": usuario,
                     "Contraseña": password,
+                    "Edad": edad,
                     "Foto": 'default.jpg',
                 })
             })
@@ -82,6 +84,11 @@ export default function CrearCuenta() {
         console.log(email)
         console.log(/\S+@\S+\.\S+/.test(email))
     };
+    const [edad, setEdad] = useState("");
+    const handleEdadChange = (e) => {
+        setEdad(e.target.value);
+        console.log(edad)
+    }
     const [password, setPassword] = useState("");
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
@@ -118,6 +125,10 @@ export default function CrearCuenta() {
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Correo Electronico</Form.Label>
                     <Form.Control type="email" placeholder="Correo Electronico" onChange={handleEmailChange} />
+                </Form.Group>
+                <Form.Group controlId="formBasicEdad">
+                    <Form.Label>Edad</Form.Label>
+                    <Form.Control type="number" placeholder="Edad" onChange={handleEdadChange} />
                 </Form.Group>
                 <Form.Group controlId="formPlaintextPassword">
                     <Form.Label>Contraseña</Form.Label>
